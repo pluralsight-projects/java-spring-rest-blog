@@ -45,6 +45,7 @@ public class Module1_Tests {
     @Autowired
     private PostRepository postRepository;
 
+
     private PostRepository spyRepository;
 
     @Before
@@ -53,14 +54,15 @@ public class Module1_Tests {
         try {
             constructor = DatabaseLoader.class.getDeclaredConstructor(PostRepository.class);
         } catch (NoSuchMethodException e) {
-            //e.printStackTrace();
+            e.printStackTrace();
         }
 
         spyRepository = Mockito.spy(postRepository);
         try {
             databaseLoader = constructor.newInstance(spyRepository); //new BlogController(spyRepository);
+           // databaseLoader = new PostRepository(spyRepository);
         } catch (Exception e) {
-            //e.printStackTrace();
+            e.printStackTrace();
         }
     }
 
