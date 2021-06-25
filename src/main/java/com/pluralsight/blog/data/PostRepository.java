@@ -14,23 +14,8 @@ import java.util.Optional;
 @Component
 public interface PostRepository  extends JpaRepository<Post, Long>{
 
+    //test
     @RestResource(rel="contains-title", path="containsTitle")
-    List<Post> findByTitleContaining(String title);
+    public List<Post> findByTitleContaining(String title);
 
-
-/*    public List<Post> findAll() {
-        return new ArrayList<>();
-    }
-
-    public List<Post> saveAll(List<Post> posts) {
-        return new ArrayList<>();
-    }
-
-    public Post save(Post post) {
-        return null;
-    }
-
-    public Optional<Post> findById(Long id) {
-        return null;
-    }*/
 }
