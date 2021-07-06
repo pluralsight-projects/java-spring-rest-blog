@@ -1,5 +1,6 @@
 package com.pluralsight.blog.model;
 
+import com.pluralsight.blog.data.AuthorRepository;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
@@ -24,6 +25,17 @@ public class Post {
     @Temporal(TemporalType.DATE)
     @CreationTimestamp
     private Date date;
+
+    public Author getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(Author author) {
+        this.author = author;
+    }
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Author author;
 
     public Post() {
         super();
